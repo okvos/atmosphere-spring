@@ -43,8 +43,6 @@ public class Utilities {
     }
 
     public static boolean comparePassword(String rawPassword, String encodedPassword) {
-        System.out.println(rawPassword);
-        System.out.println(encodedPassword);
         return new BCryptPasswordEncoder().matches(rawPassword, encodedPassword);
     }
 

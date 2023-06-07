@@ -1,5 +1,6 @@
 package com.okvos.atmosphere.data.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +14,7 @@ public class Account {
     private Integer user_id;
     private String username;
     private String email_address;
-    private String password;
+    @JsonIgnore private String password;
 
     public Integer getUser_id() {
         return user_id;

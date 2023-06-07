@@ -1,15 +1,13 @@
 package com.okvos.atmosphere;
 
 import com.okvos.atmosphere.common.exceptions.ValidationException;
-import com.okvos.atmosphere.user.exceptions.UsernameTakenException;
+import com.okvos.atmosphere.authenticate.exceptions.UsernameTakenException;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
-import com.okvos.atmosphere.user.exceptions.InvalidCredentialsException;
+import com.okvos.atmosphere.authenticate.exceptions.InvalidCredentialsException;
 
 import org.springframework.http.HttpStatus;
-
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

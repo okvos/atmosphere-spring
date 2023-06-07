@@ -1,4 +1,4 @@
-package com.okvos.atmosphere.user.domain;
+package com.okvos.atmosphere.authenticate.domain;
 
 import lombok.Getter;
 import lombok.Setter;
