@@ -2,6 +2,7 @@ package com.okvos.atmosphere;
 
 import com.okvos.atmosphere.common.exceptions.ValidationException;
 import com.okvos.atmosphere.authenticate.exceptions.UsernameTakenException;
+import com.okvos.atmosphere.feed.exceptions.PostNotFoundException;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -22,6 +23,7 @@ public class ErrorController {
     public static Integer ERROR_UNAUTHORIZED = 1;
     public static Integer ERROR_MALFORMED_REQUEST = 2;
     public static Integer ERROR_USERNAME_TAKEN = 3;
+    public static Integer ERROR_CONTENT_NOT_FOUND = 4;
 
     @ExceptionHandler(InvalidCredentialsException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
@@ -57,6 +59,19 @@ public class ErrorController {
         ErrorResponse err = new ErrorResponse();
         err.setErrorCode(ERROR_MALFORMED_REQUEST);
         err.setMessage("Invalid request");
+
+        return err;
+
+    }
+
+    @ExceptionHandler({PostNotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handle(PostNotFoundException ex) {
+        LOG.error("Not Found Exception", ex);
+
+        ErrorResponse err = new ErrorResponse();
+        err.setErrorCode(ERROR_CONTENT_NOT_FOUND);
+        err.setMessage("Content not found");
 
         return err;
 
