@@ -1,6 +1,7 @@
 package com.okvos.atmosphere.data.feed;
 
 import com.okvos.atmosphere.data.feed.entity.Post;
+import com.okvos.atmosphere.data.feed.repository.PostLikeRepository;
 import com.okvos.atmosphere.data.feed.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -18,7 +19,7 @@ import java.util.Objects;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackageClasses = PostRepository.class,
+        basePackageClasses = {PostRepository.class, PostLikeRepository.class},
         entityManagerFactoryRef = "feedEntityManagerFactory",
         transactionManagerRef = "feedTransactionManager"
 )

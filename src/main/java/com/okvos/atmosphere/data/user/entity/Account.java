@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(schema = "user")
+@Table(schema = "user", name = "account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
